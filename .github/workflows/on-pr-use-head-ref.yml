@@ -1,0 +1,14 @@
+name: on-pr-use-head-ref
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout at the PR's compare branch's HEAD ref
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
