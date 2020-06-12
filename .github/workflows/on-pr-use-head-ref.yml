@@ -11,6 +11,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+    - env:
+        GH_REF: ${{ github.ref }}
+        GH_HEAD_REF: ${{ github.head_ref }}
+      run: |
+        echo $GH_REF
+        echo $GH_HEAD_REF
+
     - name: Checkout at the PR's compare branch's HEAD ref
       uses: actions/checkout@v2
       with:
