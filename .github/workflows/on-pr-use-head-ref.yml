@@ -1,6 +1,9 @@
 name: on-pr-use-head-ref
 
 on:
+  # Context: we don't trigger builds on `pull_request:synchronize` if there's a merge conflict.
+  # Including the `push` event should guarantee that a build is run for **any** commit pushed to the repository.
+  push: 
   pull_request:
     branches: [ main ]
 
