@@ -1,0 +1,10 @@
+name: on-push-trigger-on-ref-pull
+
+on: push
+
+jobs:
+  build:
+    if: contains(github.ref, 'pull')   # Only run this workflow if the ref contains 'pull'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello world 🗺, your branch is ${{ github.ref }}
